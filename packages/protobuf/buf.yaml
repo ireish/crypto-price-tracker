@@ -1,0 +1,9 @@
+version: v1
+name: buf.build/crypto-streamer/protobuf
+lint:
+  use:
+    - DEFAULT
+breaking:
+  use:
+    - FILE
+

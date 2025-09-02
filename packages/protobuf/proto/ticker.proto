@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package ticker.v1;
+
+enum Action {
+  ACTION_UNSPECIFIED = 0;
+  SUBSCRIBE = 1;
+  UNSUBSCRIBE = 2;
+}
+
+message ClientAction {
+  Action action = 1;
+  string ticker = 2;
+}
+
+message SubscribeRequest {
+  repeated string tickers = 1;
+}
+
+message SubscribeResponse {
+  bool success = 1;
+  repeated string subscribed = 2;
+}
+
+message UnsubscribeRequest {
+  repeated string tickers = 1;
+}
+
+message UnsubscribeResponse {
+  bool success = 1;
+  repeated string unsubscribed = 2;
+}
+
+message WatchRequest {
+  // Empty request to start watching all subscribed tickers
+}
+
+message PriceUpdate {
+  string ticker = 1;
+  string price = 2;
+  int64 timestamp = 3;
+}
+
+message ServerStreamResponse {
+  oneof message {
+    PriceUpdate price_update = 1;
+  }
+}
+
+service TickerService {
+  // For bidirectional streaming (Node.js clients)
+  rpc StreamPrices(stream ClientAction) returns (stream ServerStreamResponse);
+  
+  // For browser clients - unary calls for subscription management
+  rpc Subscribe(SubscribeRequest) returns (SubscribeResponse);
+  rpc Unsubscribe(UnsubscribeRequest) returns (UnsubscribeResponse);
+  
+  // Server streaming for watching prices
+  rpc WatchPrices(WatchRequest) returns (stream ServerStreamResponse);
+}
+
+

@@ -1,0 +1,19 @@
+{
+  "name": "@crypto-streamer/protobuf",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "pnpm dlx @bufbuild/buf generate"
+  },
+  "devDependencies": {
+    "@bufbuild/protoc-gen-es": "^1.10.0",
+    "@connectrpc/connect": "^1.6.1",
+    "@connectrpc/connect-express": "^1.6.1",
+    "@connectrpc/protoc-gen-connect-es": "^1.6.1"
+  },
+  "dependencies": {
+    "@bufbuild/protobuf": "^1.10.0",
+    "@connectrpc/connect-web": "^1.6.1"
+  }
+}
