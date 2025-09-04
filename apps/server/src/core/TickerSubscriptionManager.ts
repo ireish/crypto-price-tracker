@@ -33,7 +33,7 @@ export class TickerSubscriptionManager {
   async start(): Promise<void> {
     if (this.browser) return;
     this.browser = await chromium.launch({
-      headless: false,  // Run in headed mode to show browser activity
+      headless: true,  // Run in headed mode to show browser activity
       args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
     this.context = await this.browser.newContext({
