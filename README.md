@@ -3,7 +3,7 @@
 ## Overview
 A real-time cryptocurrency price streaming application built with:
 - **Frontend**: Next.js 15 with TypeScript
-- **Backend**: Node.js with ConnectRPC (HTTP/1.1 with CORS)
+- **Backend**: Node (Express.js) with ConnectRPC (HTTP/1.1 with CORS)
 - **Data Source**: TradingView via Playwright browser automation
 - **Protocol**: ConnectRPC with Protobuf for type-safe communication
 - **Architecture**: Unary + Server-streaming RPC for browser compatibility
