@@ -1,5 +1,4 @@
-# Crypto Price Streamer - Submission Ready
-
+# Crypto Price Streamer
 ## Overview
 A real-time cryptocurrency price streaming application built with:
 - **Frontend**: Next.js 15 with TypeScript
